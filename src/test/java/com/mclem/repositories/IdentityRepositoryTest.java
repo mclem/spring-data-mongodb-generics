@@ -37,6 +37,7 @@ public class IdentityRepositoryTest {
         Identity dbIdentity = identityRepository.findOne("456");
 
         Data data = dbIdentity.getData();
+        assertThat(data, instanceOf(DataDate.class));
         assertThat(data.getValue(), instanceOf(LocalDate.class));
         assertEquals(LocalDate.of(2017, 8, 11), data.getValue());
     }
